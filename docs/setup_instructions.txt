@@ -1,0 +1,8 @@
+1. 'git clone' the repository
+2. 'cd' into the folder
+3. create a new virtual environment in root folder by 'python3 -m venv venv'
+4. activate that new virtual environment by linux: 'source venv/bin/activate' and windows: 'venv\Scripts\activate.bat (make sure to activate this each time)
+5. run pip install -r in the root folder or relative/absolute path to to download dependencies (listed in requirements.txt)
+6. begin coding
+
+I: adding dependencies? run pip freeze > requirements.txt in root folder for adding them to the file.
