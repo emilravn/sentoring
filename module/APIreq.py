@@ -96,10 +96,11 @@ class DataHandler:
         self.analyzeText()
         self.presentData()
     
-#The following code runs the program        
+#The following code runs the program
 
-api_data = APIHandler()
-data_handler = DataHandler()
-tweet_text = api_data.extractText()
-data_handler.runHandler(tweet_text)
+if __name__ == "__main__":
+    api_data = APIHandler()
+    data_handler = DataHandler()
+    tweet_text = api_data.extractText()
+    data_handler.runHandler(tweet_text)
 
