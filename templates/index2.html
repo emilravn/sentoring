@@ -1,36 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Flask syntax for importing CSS files -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fullpage.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js" integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg==" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-    <title>Document</title>
+
+    <!-- Font: Open Sans-->
+    <!-- TODO: Decide on font weights -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+
+    <!-- Chart JS integration source -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"
+        integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg=="
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Sentoring</title>
 </head>
+
 <body>
-    
+    <!-- Fullpage ID is only touched by JS -->
     <div id="fullpage">
-        
+        <!-- Data field for JS -->
         <div id="data" data-geocode='{{ data_t|tojson }}'></div>
-        
-        <section class="section s1">
-            <h1>section 1</h1>
+        <section class="wrapper section">
+            <h1>Sentoring</h1>
+            <svg class="center-logo" width="96" height="94" viewBox="0 0 96 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M80 80V0L0 80H80Z" fill="black" fill-opacity="0.75"/>
+                <path d="M96 94V14L16 94H96Z" fill="#FFD028" fill-opacity="0.75"/>
+                </svg>
             <button id="btn22">Click me</button>
-            <form action="#" method="post" class="sub">
+            <form action="#" method="post">
                 <p>Name:</p>
                 <p><input type="text" name="nm" /></p>
-                <p><input type="submit" value="submit" id="btn"/></p>
+                <p><input type="submit" value="submit" id="btn" /></p>
             </form>
-           
+
         </section>
-        <section class="section s2">
+        <section class="section">
             <h1>Here is what people think about {{text}}</h1>
             <div class="container">
-                
-                
+
+
             </div>
             <div class="testdiv"><canvas id="chart"></canvas></div>
             <div class="container2">
@@ -38,16 +59,20 @@
             </div>
             <div class="container3"><canvas id="canvas3"></canvas></div>
 
-            <div class="buttons1"> 
-            <button id="databtn">check data</button> 
-            <button id="btn2">Search again</button>
+            <div class="buttons1">
+                <button id="databtn">check data</button>
+                <button id="btn2">Search again</button>
             </div>
         </section>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js" integrity="sha512-0xrMWUXzEAc+VY7k48pWd5YT6ig03p4KARKxs4Bqxb9atrcn2fV41fWs+YXTKb8lD2sbPAmZMjKENiyzM/Gagw==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"
+        integrity="sha512-0xrMWUXzEAc+VY7k48pWd5YT6ig03p4KARKxs4Bqxb9atrcn2fV41fWs+YXTKb8lD2sbPAmZMjKENiyzM/Gagw=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+        integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w=="
+        crossorigin="anonymous"></script>
     <script src={{ url_for("static", filename="js/fullpage.min.js") }}></script>
-    <script src={{ url_for("static", filename="js/app2.js") }}></script>   
-    
+    <script src={{ url_for("static", filename="js/app2.js") }}></script>
 </body>
+
 </html>

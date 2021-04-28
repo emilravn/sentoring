@@ -1,51 +1,29 @@
-*{
-    margin: 0; 
-    padding: 0; 
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-
-.s1 h1{
-    font-size: 64px;
-    position: absolute;
-    top: 20%;
-    left: 50%; 
-    transform: translate(-50%, -20%);
-    
-}
-
-.s2 h1{
-    font-size: 64px;
-    position: absolute;
-    top: 5%;
-    left: 50%; 
-    transform: translate(-50%, -5%);
-    
+body {
+    background-color: #00B2FF;
+    font-family: 'Open Sans', sans-serif;
 }
 
 
 
-.sub{
-
-    position: absolute;
-    top: 40%;
-    left: 50%; 
-    transform: translate(-50%, -40%);
-    
-}
 
 
-.testdiv{
+.testdiv {
 
-    height: 300px; 
+    height: 300px;
     width: 600px;
     position: absolute;
     top: 60%;
-    left: 4%; 
+    left: 4%;
     transform: translate(-4%, -60%);
 }
 
-.container2{
+.container2 {
 
     height: 300px;
     width: 500px;
@@ -55,7 +33,7 @@
     transform: translate(-50%, -80%);
 }
 
-.container3{
+.container3 {
 
     height: 400px;
     width: 400px;
@@ -65,7 +43,7 @@
     transform: translate(-90%, -40%);
 }
 
-.buttons1{
+.buttons1 {
     position: absolute;
     top: 20%;
     left: 10%;
