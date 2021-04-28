@@ -16,7 +16,7 @@ data = {'data_list': [], 'current_state': 0}
 @app.route('/', methods=["POST", "GET"])
 def test2():
     
-    data['current_state'] = 1
+    data['current_state'] = 0
     if request.method == "POST":
         user_search = request.form["nm"]
         query_result = api_handler.runHandler(user_search)
