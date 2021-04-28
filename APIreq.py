@@ -36,7 +36,7 @@ class APIHandler:
         tweets = tw.Cursor(self.loadCredentials().search,
               q=search_words,
               lang="en",
-              since=week.date()).items(500)
+              since=week.date()).items(100)
         users_locs = [[tweet.text, tweet.user.screen_name, tweet.user.location] for tweet in tweets]
 
         self.__tweet_content = pd.DataFrame(data=users_locs, 

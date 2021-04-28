@@ -24,9 +24,9 @@ def home():
         
         
     return render_template("index.html", data_t=data2, current_t = current)
-
 """
-@app.route('/test2', methods=["POST", "GET"])
+
+@app.route('/', methods=["POST", "GET"])
 def test2():
     
     data2['current_state'] = 0
