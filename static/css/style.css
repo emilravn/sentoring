@@ -1,0 +1,73 @@
+*{
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+
+.s1 h1{
+    font-size: 64px;
+    position: absolute;
+    top: 20%;
+    left: 50%; 
+    transform: translate(-50%, -20%);
+    
+}
+
+.s2 h1{
+    font-size: 64px;
+    position: absolute;
+    top: 5%;
+    left: 50%; 
+    transform: translate(-50%, -5%);
+    
+}
+
+
+
+.sub{
+
+    position: absolute;
+    top: 40%;
+    left: 50%; 
+    transform: translate(-50%, -40%);
+    
+}
+
+
+.testdiv{
+
+    height: 300px; 
+    width: 600px;
+    position: absolute;
+    top: 60%;
+    left: 4%; 
+    transform: translate(-4%, -60%);
+}
+
+.container2{
+
+    height: 300px;
+    width: 500px;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+}
+
+.container3{
+
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    top: 40%;
+    left: 90%;
+    transform: translate(-90%, -40%);
+}
+
+.buttons1{
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    transform: translate(-10%, -20%);
+}

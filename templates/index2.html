@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fullpage.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js" integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="fullpage">
+        
+        <div id="data" data-geocode='{{ data_t|tojson }}'></div>
+        
+        <section class="section s1">
+            <h1>section 1</h1>
+            <button id="btn22">Click me</button>
+            <form action="#" method="post" class="sub">
+                <p>Name:</p>
+                <p><input type="text" name="nm" /></p>
+                <p><input type="submit" value="submit" id="btn"/></p>
+            </form>
+           
+        </section>
+        <section class="section s2">
+            <h1>Here is what people think about {{text}}</h1>
+            <div class="container">
+                
+                
+            </div>
+            <div class="testdiv"><canvas id="chart"></canvas></div>
+            <div class="container2">
+                <canvas id="canvas2"></canvas>
+            </div>
+            <div class="container3"><canvas id="canvas3"></canvas></div>
+
+            <div class="buttons1"> 
+            <button id="databtn">check data</button> 
+            <button id="btn2">Search again</button>
+            </div>
+        </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js" integrity="sha512-0xrMWUXzEAc+VY7k48pWd5YT6ig03p4KARKxs4Bqxb9atrcn2fV41fWs+YXTKb8lD2sbPAmZMjKENiyzM/Gagw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w==" crossorigin="anonymous"></script>
+    <script src={{ url_for("static", filename="js/fullpage.min.js") }}></script>
+    <script src={{ url_for("static", filename="js/app2.js") }}></script>   
+    
+</body>
+</html>

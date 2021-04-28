@@ -16,8 +16,8 @@ class APIHandler:
 
     __tweet_content = pd.DataFrame()
 
-    def __init__(self):
-        self.queryAPI()
+
+
     
     def loadCredentials(self): 
         # Load credentials from json file
@@ -29,14 +29,14 @@ class APIHandler:
         api = tw.API(auth, wait_on_rate_limit=True)
         return api
 
-    def queryAPI(self):
+    def queryAPI(self, search_words):
         today = datetime.today()
         week = today - timedelta(days=7)
-        search_words = input("Enter search: ") + " -filter:retweets"
+        
         tweets = tw.Cursor(self.loadCredentials().search,
               q=search_words,
               lang="en",
-              since=week.date()).items(100)
+              since=week.date()).items(500)
         users_locs = [[tweet.text, tweet.user.screen_name, tweet.user.location] for tweet in tweets]
 
         self.__tweet_content = pd.DataFrame(data=users_locs, 
@@ -48,6 +48,12 @@ class APIHandler:
         for t in self.__tweet_content['tweet']: 
             tweet_text.append(t)
         return tweet_text
+    
+    def runHandler(self, search_words):
+        self.queryAPI(search_words)
+        tweets = self.extractText()
+        return tweets
+
 
 class DataHandler: 
 
@@ -70,7 +76,8 @@ class DataHandler:
         self.__cleaned_tweets = [self.__remove_url(tweet) for tweet in tweets]
         
     def analyzeText(self):
-        self.__tweet_sentiment_score = [self.__sentiment_analyzer_scores(tweet) for tweet in self.__cleaned_tweets]
+        tweet_sentiment_score = [self.__sentiment_analyzer_scores(tweet) for tweet in self.__cleaned_tweets]
+        return tweet_sentiment_score
 
     def presentData(self):
         categories = [0, 0, 0]
@@ -93,14 +100,10 @@ class DataHandler:
 
     def runHandler(self, tweets):
         self.cleanText(tweets) 
-        self.analyzeText()
-        self.presentData()
+        sentiment_score = self.analyzeText()
+        return sentiment_score
     
-#The following code runs the program
+#The following code runs the program        
 
-if __name__ == "__main__":
-    api_data = APIHandler()
-    data_handler = DataHandler()
-    tweet_text = api_data.extractText()
-    data_handler.runHandler(tweet_text)
+
 
