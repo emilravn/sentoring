@@ -13,31 +13,31 @@ fullpage_api.setScrollingSpeed(2000);
 fullpage_api.setAllowScrolling(false);
 
 
-
-const btn1 = document.querySelector('#btn');
-//btn1.onclick = () => enterSearch();
-
+//Queries 
 const btn2 = document.querySelector('#btn2');
-btn2.onclick = () => goAgain();
-
-var geocode = JSON.parse(document.getElementById("data").dataset.geocode);
-var testdata = geocode.data_list; 
-var test2 = geocode.current_state;
-
 const btn = document.querySelector('#databtn');
-btn.onclick = () => alert(testdata);
+let canvas1 = document.getElementById('chart').getContext('2d'); 
+let canvas2 = document.getElementById('canvas2').getContext('2d'); 
+let canvas3 = document.getElementById('canvas3').getContext('2d'); 
+var geocode = JSON.parse(document.getElementById("data").dataset.geocode);
 
-const btn22 = document.querySelector('#btn22');
-//btn22.onclick = () => enterSearch();
+//Collects analysis data passed to index from flask
+var tweet_data = geocode.data_list; 
+var search_state = geocode.current_state;
 
-
-if (test2 == 1){
+//Clause that triggers move if a search has been made
+if (search_state == 1){
     fullpage_api.moveSectionDown();
 }
 
+//Eventhandlers for buttons
+btn2.onclick = () => goAgain();
+btn.onclick = () => alert(tweet_data);
 
-
-let stringArray = testdata.map(String)
+//Functions  
+function goAgain() {
+    fullpage_api.moveSectionUp()
+}
 
 function countAmount(input) {
     let categories = [0, 0, 0]; 
@@ -53,17 +53,14 @@ function countAmount(input) {
     return categories;
 }
 
-
-let chart = document.getElementById('chart').getContext('2d'); 
-//chart.canvas.width = 200;
-//chart.canvas.height= 200;
-let valueChart = new Chart(chart, {
+//Charts
+let canvas_chart1 = new Chart(canvas1, {
     type: 'bar', 
     data: {
-        labels: stringArray, 
+        labels: tweet_data.map(String), 
         datasets: [{
             //label: 'Numbers',
-            data: testdata, 
+            data: tweet_data, 
             backgroundColor: [
                 'rgba(255, 99, 132, 0.6)',
                 'rgba(54, 162, 235, 0.6)',
@@ -81,17 +78,7 @@ let valueChart = new Chart(chart, {
     }
 })
 
-
-
-
-
-
-
-
-let canvas2 = document.getElementById('canvas2').getContext('2d'); 
-//chart.canvas.width = 200;
-//chart.canvas.height= 200;
-let canvaschart2 = new Chart(canvas2, {
+let canvas_chart2 = new Chart(canvas2, {
     type: 'radar', 
     data: {
         labels: ['one', 'two', 'three', 'four'], 
@@ -115,16 +102,13 @@ let canvaschart2 = new Chart(canvas2, {
     }
 })
 
-let canvas3 = document.getElementById('canvas3').getContext('2d'); 
-//chart.canvas.width = 200;
-//chart.canvas.height= 200;
-let canvaschart3 = new Chart(canvas3, {
+let canvas_chart3 = new Chart(canvas3, {
     type: 'doughnut', 
     data: {
         labels: ['Negative', 'Neutral', 'Positive'], 
         datasets: [{
             label: 'Numbers',
-            data: countAmount(testdata), 
+            data: countAmount(tweet_data), 
             backgroundColor: [
                 'rgba(255, 0, 0, 0.6)',     
                 'rgba(255, 191, 0, 0.6)',
@@ -144,11 +128,6 @@ let canvaschart3 = new Chart(canvas3, {
 
 
 
-
-function goAgain() {
-    fullpage_api.moveSectionUp()
-
-}
 
 
 
