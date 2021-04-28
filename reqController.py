@@ -22,10 +22,10 @@ def test2():
         query_result = api_handler.runHandler(user_search)
         data['data_list'] = data_handler.runHandler(query_result)
         data['current_state'] = 1
-        return render_template("index2.html", data_t=data, text=user_search)
+        return render_template("index.html", data_t=data, text=user_search)
     
     
-    return render_template("index2.html", data_t=data)
+    return render_template("index.html", data_t=data)
 
 
 
