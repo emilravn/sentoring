@@ -33,20 +33,25 @@
     <div id="fullpage">
         <!-- Data field for JS -->
         <div id="data" data-geocode='{{ data_t|tojson }}'></div>
-        <section class="wrapper section">
-            <h1>Sentoring</h1>
-            <svg class="center-logo" width="96" height="94" viewBox="0 0 96 94" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M80 80V0L0 80H80Z" fill="black" fill-opacity="0.75"/>
-                <path d="M96 94V14L16 94H96Z" fill="#FFD028" fill-opacity="0.75"/>
-                </svg>
-            <button id="btn22">Click me</button>
-            <form action="#" method="post">
-                <p>Name:</p>
-                <p><input type="text" name="nm" /></p>
-                <p><input type="submit" value="submit" id="btn" /></p>
-            </form>
-
+        
+        <!-- Main section (first page) -->
+        <section class="section">
+            <div id="main">
+                <div id="logo-title">
+                    <svg class="logo" width="128" height="126" viewBox="0 0 96 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M80 80V0L0 80H80Z" fill="black" fill-opacity="0.75" />
+                        <path d="M96 94V14L16 94H96Z" fill="#FFD028" fill-opacity="0.75" />
+                    </svg>
+                    <h1 id="title">Sentoring</h1>
+                </div>
+                <div class="searchBar">
+                    <form class="search" action="#" method="post" autocomplete="off">
+                        <input placeholder="What do you want to know about?" class="searchTerm no-flickr" type="text" name="nm" required>
+                    </form>
+                </div>
+            </div>
         </section>
+
         <section class="section">
             <h1>Here is what people think about {{text}}</h1>
             <div class="container">

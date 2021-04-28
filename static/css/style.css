@@ -1,17 +1,104 @@
-* {
-    margin: 0;
-    padding: 0;
+*,
+*:before,
+*:after {
+    font-family: 'Open Sans', sans-serif;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
+html,
 body {
-    background-color: #00B2FF;
-    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    height: 100%;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
 
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #00B2FF;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
 
+/* Main page */
 
+#main {
+    display: flex;
+    flex-direction: column;
+    flex-grow:1;
+    justify-content: center;
+}
+
+#logo-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#title {
+    font-size: 68px;
+    font-style: normal;
+    font-weight: normal;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: inline;
+    padding-left: 48px;
+    margin-right:48px;
+}
+
+#logo {
+    vertical-align: middle;
+}
+
+/* Search bar */
+
+.searchBar .search {
+    display: flex;
+    justify-content: center;
+    margin-top: 4em;
+    max-width: 100%;
+    padding: 0px 20px;
+}
+
+.searchTerm:focus {
+    box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+.searchTerm:hover {
+    box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+.searchBar .searchTerm {
+    transition: all .2s ease-in-out;
+    font-size: 16px;
+    width: 600px;
+    height: 25px;
+    border: 0px;
+    border-right: none;
+    padding: 20px;
+    border-radius: 20px;
+    outline: none;
+}
+
+/* Extension to remove text flicker when scaling (transforming text) */
+.no-flickr {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* Footer area */
 
 .testdiv {
 
