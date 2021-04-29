@@ -1,3 +1,4 @@
+<!-- Jinja Templte: This should include all the content that are shared across multiple sites, so we don't need to redefine for every single .HTML-page. -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,12 +26,9 @@
 
     <title>{% block title %}{% endblock %} - Sentoring</title>
 </head>
+
 <body>
     {% block content %}
     {% endblock %}
 </body>
 <html>
-
-
-<!-- Jinja template for later: This should include all the content that are shared across multiple sites, so we don't need to redefine for every single .HTML-page. -->
-https://jinja.palletsprojects.com/en/2.11.x/templates/

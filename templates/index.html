@@ -5,19 +5,19 @@
     {% block content %}
     <nav>
         <ul class="nav-bar">
-            <li><a href="#">About</a></li>
+            <li><a href="about">About</a></li>
             <li><a href="#">Terms</a></li>
-        </ul> 
+        </ul>
     </nav>
     <!-- Fullpage ID is only touched by JS -->
     <div id="fullpage">
-        
+
         <!-- Data field for JS -->
         <div id="data" data-geocode='{{ data_t|tojson }}'></div>
-       
+
         <!-- Main section (first page) -->
         <section class="section">
-        
+           
             <div id="main">
                 <div id="logo-title">
                     <svg class="logo" width="128" height="126" viewBox="0 0 96 94" fill="none"
@@ -64,4 +64,5 @@
     <script src={{ url_for("static", filename="js/app2.js") }}></script>
     {% endblock %}
 </body>
+
 </html>

@@ -27,6 +27,10 @@ def test2():
     
     return render_template("index.html", data_t=data)
 
+@app.route('/about')
+def about():
+    return render_template("about-us.html")
+
 
 
 
