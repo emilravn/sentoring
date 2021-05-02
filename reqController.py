@@ -7,20 +7,15 @@ api_handler = APIHandler()
 data_handler = DataHandler()
 
 
-data = {'data_list': [], 'current_state': 0}
-
-
-
-
 #connects index page with the backend
 @app.route('/', methods=["POST", "GET"])
 def test2():
+    data = {"tweet_data": {}, "current_state": 0}
     
-    data['current_state'] = 0
     if request.method == "POST":
         user_search = request.form["nm"]
         query_result = api_handler.runHandler(user_search)
-        data['data_list'] = data_handler.runHandler(query_result)
+        data['tweet_data'] = data_handler.runHandler(query_result)
         data['current_state'] = 1
         return render_template("index.html", data_t=data, text=user_search)
     

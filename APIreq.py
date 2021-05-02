@@ -34,13 +34,13 @@ class APIHandler:
         week = today - timedelta(days=7)
         
         tweets = tw.Cursor(self.loadCredentials().search,
-              q=search_words,
+              q=search_words + " -filter:retweets",
               lang="en",
-              since=week.date()).items(100)
-        users_locs = [[tweet.text, tweet.user.screen_name, tweet.user.location] for tweet in tweets]
+              since=week.date()).items(15)
+        users_locs = [[tweet.text, tweet.user.screen_name, tweet.user.location, tweet.created_at] for tweet in tweets]
 
         self.__tweet_content = pd.DataFrame(data=users_locs, 
-                    columns=['tweet', 'user', "location"])
+                    columns=['tweet', 'user', "location", "date"])
 
     def extractText(self): 
         tweet_text = []
@@ -48,11 +48,17 @@ class APIHandler:
         for t in self.__tweet_content['tweet']: 
             tweet_text.append(t)
         return tweet_text
+
+    def extractDate(self): 
+        tweet_date = []
+
+        for t in self.__tweet_content['date']: 
+            tweet_date.append(t)
+        return tweet_date
     
     def runHandler(self, search_words):
         self.queryAPI(search_words)
-        tweets = self.extractText()
-        return tweets
+        return self.__tweet_content
 
 
 class DataHandler: 
@@ -60,9 +66,18 @@ class DataHandler:
     """
     This class handles the data extracted from twitter 
     """
-
+    processed_data = {}
     __cleaned_tweets = []
     __tweet_sentiment_score = []
+
+    def __processData(self, dataframe): 
+        id_count = 0
+        for t in range(len(dataframe)): 
+            self.processed_data[str(id_count)] = [dataframe.iloc[id_count][0], dataframe.iloc[id_count][2], 0]
+
+            id_count += 1
+        
+
 
     def __remove_url(self, text):
         return " ".join(re.sub("([^0-9A-Za-z \t])|(\w+:\/\/\S+)", "", text).split())
@@ -72,12 +87,14 @@ class DataHandler:
         score = analyser.polarity_scores(sentence)
         return score.get('compound')
 
-    def cleanText(self, tweets):
-        self.__cleaned_tweets = [self.__remove_url(tweet) for tweet in tweets]
-        
+    def cleanText(self):
+        for t in self.processed_data: 
+            self.processed_data[t][0] = self.__remove_url(self.processed_data[t][0])
+
     def analyzeText(self):
-        tweet_sentiment_score = [self.__sentiment_analyzer_scores(tweet) for tweet in self.__cleaned_tweets]
-        return tweet_sentiment_score
+        for t in self.processed_data: 
+            self.processed_data[t][2] = self.__sentiment_analyzer_scores(self.processed_data[t][0])
+            
 
     def presentData(self):
         categories = [0, 0, 0]
@@ -99,11 +116,12 @@ class DataHandler:
         plt.show()
 
     def runHandler(self, tweets):
-        self.cleanText(tweets) 
-        sentiment_score = self.analyzeText()
-        return sentiment_score
+        self.__processData(tweets)
+        self.cleanText()
+        self.analyzeText()
+        #sorted_dict = dict(sorted(self.processed_data.items(), key=lambda item: item[0]))
+        return self.processed_data
     
 #The following code runs the program        
-
 
 

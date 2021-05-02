@@ -22,17 +22,30 @@ let canvas3 = document.getElementById('canvas3').getContext('2d');
 var geocode = JSON.parse(document.getElementById("data").dataset.geocode);
 
 //Collects analysis data passed to index from flask
-var tweet_data = geocode.data_list; 
+//var tweet_data = geocode.data_list; 
 var search_state = geocode.current_state;
+var tweets = geocode.tweet_data;
+var tweet_arr = Object.values(tweets);
+let tweet_sentiment_values = []; 
+let low_values = [];
+let high_values = [];
+
+for (i=0; i < tweet_arr.length; i++) {
+    tweet_sentiment_values.push(tweet_arr[i][2]);
+}
+
+
 
 //Clause that triggers move if a search has been made
 if (search_state == 1){
     fullpage_api.moveSectionDown();
+    tweet_arr.sort(sortFunction);
+    calcTopValues();
 }
 
 //Eventhandlers for buttons
 btn2.onclick = () => goAgain();
-btn.onclick = () => alert(tweet_data);
+btn.onclick = () => alert(tweet_sentiment_values);
 
 //Functions  
 function goAgain() {
@@ -53,14 +66,45 @@ function countAmount(input) {
     return categories;
 }
 
+function sortFunction(a, b) {
+    if (a[2] === b[2]) {
+        return 0;
+    }
+    else {
+        return (a[2] < b[2]) ? -1 : 1;
+    }
+}
+
+function calcTopValues() {
+
+let counts = 0;
+
+for (i=0; i < 5; i++) {
+    low_values.push(tweet_arr[i]);
+}
+
+for (i=tweet_arr.length-1; counts < 5; i--) {
+    high_values.push(tweet_arr[i]);
+    counts++;
+}
+
+}
+
+
+
+
+
+
+
+
 //Charts
 let canvas_chart1 = new Chart(canvas1, {
     type: 'bar', 
     data: {
-        labels: tweet_data.map(String), 
+        labels: tweet_sentiment_values.map(String), 
         datasets: [{
             //label: 'Numbers',
-            data: tweet_data, 
+            data: tweet_sentiment_values, 
             backgroundColor: [
                 'rgba(255, 99, 132, 0.6)',
                 'rgba(54, 162, 235, 0.6)',
@@ -108,7 +152,7 @@ let canvas_chart3 = new Chart(canvas3, {
         labels: ['Negative', 'Neutral', 'Positive'], 
         datasets: [{
             label: 'Numbers',
-            data: countAmount(tweet_data), 
+            data: countAmount(tweet_sentiment_values), 
             backgroundColor: [
                 'rgba(255, 0, 0, 0.6)',     
                 'rgba(255, 191, 0, 0.6)',
@@ -124,9 +168,6 @@ let canvas_chart3 = new Chart(canvas3, {
         }
     }
 })
-
-
-
 
 
 
