@@ -3,16 +3,12 @@
 
 <body>
     {% block content %}
-    
     <!-- Fullpage ID is only touched by JS -->
     <div id="fullpage">
-
         <!-- Data field for JS -->
         <div id="data" data-geocode='{{ data_t|tojson }}'></div>
-
         <!-- Main section (first page) -->
         <section class="section">
-           
             <div id="main">
                 <div id="logo-title">
                     <svg class="logo" width="128" height="126" viewBox="0 0 96 94" fill="none"
@@ -30,22 +26,16 @@
                 </div>
             </div>
         </section>
-
-        <section class="section">
-            <h1>Here is what people think about {{text}}</h1>
-            <div class="container">
-
-
-            </div>
+        <section class="section smooth-transition">
+            <h1>What people think about {{text}}</h1>
             <div class="testdiv"><canvas id="chart"></canvas></div>
             <div class="container2">
                 <canvas id="canvas2"></canvas>
             </div>
             <div class="container3"><canvas id="canvas3"></canvas></div>
-
             <div class="buttons1">
-                <button id="databtn">check data</button>
-                <button id="btn2">Search again</button>
+                <button id="databtn">Check Data Points</button>
+                <button id="btn2">Search Again</button>
             </div>
         </section>
     </div>
@@ -59,5 +49,3 @@
     <script src={{ url_for("static", filename="js/app2.js") }}></script>
     {% endblock %}
 </body>
-
-</html>

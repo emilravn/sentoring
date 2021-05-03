@@ -9,16 +9,11 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from matplotlib import pyplot as plt
 
 class APIHandler:
-
     """
     This class handles the connection with the twitter API
     """ 
-
     __tweet_content = pd.DataFrame()
 
-
-
-    
     def loadCredentials(self): 
         # Load credentials from json file
         with open("twitter_credentials.json", "r") as file:
@@ -59,8 +54,6 @@ class APIHandler:
     def runHandler(self, search_words):
         self.queryAPI(search_words)
         return self.__tweet_content
-
-
 class DataHandler: 
 
     """
@@ -77,8 +70,6 @@ class DataHandler:
 
             id_count += 1
         
-
-
     def __remove_url(self, text):
         return " ".join(re.sub("([^0-9A-Za-z \t])|(\w+:\/\/\S+)", "", text).split())
 
@@ -95,7 +86,6 @@ class DataHandler:
         for t in self.processed_data: 
             self.processed_data[t][2] = self.__sentiment_analyzer_scores(self.processed_data[t][0])
             
-
     def presentData(self):
         categories = [0, 0, 0]
         categories_labels = ['Negative', 'Neutral', 'Positive']
@@ -121,7 +111,3 @@ class DataHandler:
         self.analyzeText()
         #sorted_dict = dict(sorted(self.processed_data.items(), key=lambda item: item[0]))
         return self.processed_data
-    
-#The following code runs the program        
-
-

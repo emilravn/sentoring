@@ -5,17 +5,11 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
-
-html,
-body {
-    width: 100%;
-    height: 100%;
-}
-
-body {
     margin: 0;
     padding: 0;
+}
+
+body {
     background-color: #00B2FF;
 }
 
@@ -41,15 +35,15 @@ body {
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     display: inline;
     padding-left: 48px;
-    margin-right:48px;
+    margin-right: 48px;
 }
 
 #logo {
     vertical-align: middle;
 }
 
-#fullpage{
-    z-index:0;
+#fullpage {
+    z-index: 0;
 }
 
 /* Search bar */
@@ -95,59 +89,63 @@ body {
 
 nav {
     position: absolute;
-    top: 3%;
-    left:0%;
-    transform: translate(-3%, -0%);
-    z-index:1;
+    top: 4%;
+    left: 2%;
+    transform: translate(-4%, -2%);
+    z-index: 1;
 }
 
-.nav-bar{
-    list-style:none;
+.nav-bar {
+    list-style: none;
 }
 
-.nav-bar li{
-    display:inline;
-    padding-right:30px; 
+.nav-bar li {
+    display: inline;
+    padding-right: 30px;
 }
 
 .nav-bar li a {
     transition: .3s;
-    text-decoration:none;
-    color:white;
+    text-decoration: none;
+    color: white;
 }
 
-.logo-nav{
-    vertical-align:middle;
-    float:left;
-    margin-top:-16px;
-    margin-right:8px;
+.logo-nav {
+    vertical-align: middle;
+    float: left;
+    margin-top: -16px;
+    margin-right: 8px;
 }
 
-.nav-bar li a:hover{
-    color:black;
+.nav-bar li a:hover {
+    color: black;
 }
 
-.logo-nav:hover{
-    cursor:pointer;
-    transform:scale(1.5, 1.5);
-    transition:all 0.3s ease-in-out 0s;
+.logo-nav:hover {
+    cursor: pointer;
+    transform: scale(1.5, 1.5);
+    transition: all 0.3s ease-in-out 0s;
 }
 
 /* About us */
 
-.grid{
-    display:grid;
-    place-items:center;
+.grid {
+    display: grid;
+    place-items: center;
 }
 
-#about{
-    color:#FFFFFF;
-    margin:auto;
-    width:50%;
-    padding-top:250px;
+.title-about{
+    padding-bottom:20px;
+}
+
+#about {
+    padding-bottom:20px;
+    color: #FFFFFF;
+    margin: auto;
+    width: 50%;
+    padding-top: 250px;
     line-height: 24px;
 }
-
 
 .testdiv {
     height: 300px;

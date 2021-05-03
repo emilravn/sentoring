@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, render_template, request, jsonify 
+from flask import Flask, redirect, url_for, render_template, request, jsonify
 from api_request import APIHandler, DataHandler
 import pandas as pd
 
@@ -6,7 +6,8 @@ app = Flask(__name__)
 api_handler = APIHandler()
 data_handler = DataHandler()
 
-#connects index page with the backend
+
+# connects index page with the backend
 @app.route('/', methods=["POST", "GET"])
 def analyzer():
     data = {"tweet_data": {}, "current_state": 0}
@@ -18,9 +19,11 @@ def analyzer():
         return render_template("index.html", data_t=data, text=user_search)
     return render_template("index.html", data_t=data)
 
+
 @app.route('/about')
 def about():
     return render_template("about-us.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
