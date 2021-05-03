@@ -1,2 +1,23 @@
 {% extends "layout.html" %}
 {% block title %}About{% endblock %}
+
+<body>
+    {% block content %}
+    
+    <article id="about" class="grid">
+        
+        <h1>What is Sentoring?</h1>
+       
+        <p>Sentoring is a tool that will retrieve and analyze statements said by individuals on Twitter. These
+            statements
+            will then be fed into a sentimental model for further analysis, recognizing positive, negative, annd neutral
+            emotions in online text data. Ultimately, it will tell and show you through statistical models whether what
+            you searched for is in good standing with the general public. <br><br> By analyzing the sentiment in social
+            media comments, businesses can better understand how customers feel
+            about
+            their brands and prouducts. <br><br> This tool was made by three BSc. students in Information Technology at
+            Aalborg University in 2021.
+        </p>
+    </article>
+    {% endblock %}
+</body>

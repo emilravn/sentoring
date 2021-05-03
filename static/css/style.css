@@ -94,13 +94,10 @@ body {
 }
 
 nav {
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
     position: absolute;
-    top: 2%;
-    right:2%;
-    transform: translate(-2%, -2%);
+    top: 3%;
+    left:0%;
+    transform: translate(-3%, -0%);
     z-index:1;
 }
 
@@ -109,8 +106,8 @@ nav {
 }
 
 .nav-bar li{
-    display:inline-block;
-    padding: 0 30px 0px 0px;
+    display:inline;
+    padding-right:30px; 
 }
 
 .nav-bar li a {
@@ -119,8 +116,40 @@ nav {
     color:white;
 }
 
-.testdiv {
+.logo-nav{
+    vertical-align:middle;
+    float:left;
+    margin-top:-16px;
+    margin-right:8px;
+}
 
+.nav-bar li a:hover{
+    color:black;
+}
+
+.logo-nav:hover{
+    cursor:pointer;
+    transform:scale(1.5, 1.5);
+    transition:all 0.3s ease-in-out 0s;
+}
+
+/* About us */
+
+.grid{
+    display:grid;
+    place-items:center;
+}
+
+#about{
+    color:#FFFFFF;
+    margin:auto;
+    width:50%;
+    padding-top:250px;
+    line-height: 24px;
+}
+
+
+.testdiv {
     height: 300px;
     width: 600px;
     position: absolute;
@@ -130,7 +159,6 @@ nav {
 }
 
 .container2 {
-
     height: 300px;
     width: 500px;
     position: absolute;
