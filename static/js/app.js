@@ -1,6 +1,7 @@
 new fullpage('#fullpage', {
     autoScrolling: true,
     onLeave: (origin, destination, direction) => {
+        document.body.classList.add('bg-active');
         const section = destination.item;
         const title = section.querySelector("h1");
         const tl = new TimelineMax({
@@ -18,8 +19,6 @@ new fullpage('#fullpage', {
 
 fullpage_api.setScrollingSpeed(2000);
 fullpage_api.setAllowScrolling(false);
-
-
 
 //Queries 
 const btn = document.querySelector('#databtn');
