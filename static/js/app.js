@@ -54,6 +54,8 @@ btn.onclick = () => alert(tweet_sentiment_values);
 
 //Functions  
 function goAgain() {
+    console.log('workig!!');
+    document.body.classList.add('bg-blue');
     fullpage_api.moveSectionUp()
 }
 
