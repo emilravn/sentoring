@@ -139,19 +139,19 @@ nav {
 @media screen and (max-width: 560px) {
 
     nav {
-       left: 50%;
-       top:5%;
-       transform: translate(-50%, -5%);
+        left: 50%;
+        top: 5%;
+        transform: translate(-50%, -5%);
     }
 
     .nav-bar li {
         padding: 0px;
-        font-size:18px;
+        font-size: 18px;
     }
 
     .searchBar .searchTerm {
         /* No, this was not intentional. */
-        width: 420px; 
+        width: 420px;
         font-size: 14px;
     }
 
@@ -160,7 +160,7 @@ nav {
         justify-content: center;
         align-items: center;
     }
-    
+
     #title {
         font-size: 48px;
         font-style: normal;
@@ -172,9 +172,9 @@ nav {
         margin-right: 48px;
     }
 
-    svg{
+    svg {
         width: 96px;
-        height:auto;
+        height: auto;
     }
 }
 
@@ -223,25 +223,45 @@ nav {
         "query_buttons query_buttons";
 }
 
-.query_header{
+.query_header {
     grid-area: query_header;
 }
 
 .query_buttons {
     grid-area: query_buttons;
-    margin: 0 auto;
+    margin: auto;
+  
 }
 
-.graph1{
+.button-design{
+    color: white;
+    background-color: #00B2FF;
+    border-radius: 22px;
+    border: hidden;
+    outline: none;
+    padding: 10px 15px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    margin:0px 12px;
+}
+
+.button-design:hover{
+    cursor:pointer;
+    background-color:#00b3ff77
+}
+
+.graph1 {
     grid-area: graph1;
-    height: 300px;
-    width: 500px;
+    margin: auto;
+    width: 560px;
+    height: auto;
 }
 
-.graph2{
-    grid-area:graph2;
-    height: 300px;
-    width: 500px;
+.graph2 {
+    grid-area: graph2;
+    margin: auto;
+    width: 560px;
+    height: auto;
 }
 
 .query_title {
@@ -251,8 +271,26 @@ nav {
 }
 
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 900px) {
+    #grid-container {
+        display: inline;
+        height: 100vh;
+    }
 
+    .graph1 {
+        width:220px;
+        padding-top: 50px;
+    }
+
+    .graph2 {
+        width:220;
+        padding-top: 50px;
+    }
+
+    .query_buttons {
+        padding-top: 50px;
+        text-align: center;
+    }
 }
 
 /* .testdiv {
