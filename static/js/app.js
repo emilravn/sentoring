@@ -24,7 +24,7 @@ fullpage_api.setAllowScrolling(false);
 const btn = document.querySelector('#databtn');
 const btn2 = document.querySelector('#btn2');
 let canvas1 = document.getElementById('chart').getContext('2d');
-let canvas2 = document.getElementById('canvas2').getContext('2d');
+// let canvas2 = document.getElementById('canvas2').getContext('2d');
 let canvas3 = document.getElementById('canvas3').getContext('2d');
 var geocode = JSON.parse(document.getElementById("data").dataset.geocode);
 
@@ -54,7 +54,6 @@ btn.onclick = () => alert(tweet_sentiment_values);
 
 //Functions  
 function goAgain() {
-    console.log('workig!!');
     document.body.classList.add('bg-blue');
     fullpage_api.moveSectionUp()
 }
@@ -120,29 +119,29 @@ let canvas_chart1 = new Chart(canvas1, {
     }
 })
 
-let canvas_chart2 = new Chart(canvas2, {
-    type: 'radar',
-    data: {
-        labels: ['one', 'two', 'three', 'four'],
-        datasets: [{
-            label: 'Numbers',
-            data: [1, 2, 3, 4],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.6)',
-                'rgba(54, 162, 235, 0.6)',
-                'rgba(255, 206, 86, 0.6)',
-                'rgba(75, 192, 192, 0.6)'
-            ]
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        animation: {
-            duration: 4500,
-        }
-    }
-})
+// let canvas_chart2 = new Chart(canvas2, {
+//     type: 'radar',
+//     data: {
+//         labels: ['one', 'two', 'three', 'four'],
+//         datasets: [{
+//             label: 'Numbers',
+//             data: [1, 2, 3, 4],
+//             backgroundColor: [
+//                 'rgba(255, 99, 132, 0.6)',
+//                 'rgba(54, 162, 235, 0.6)',
+//                 'rgba(255, 206, 86, 0.6)',
+//                 'rgba(75, 192, 192, 0.6)'
+//             ]
+//         }]
+//     },
+//     options: {
+//         responsive: true,
+//         maintainAspectRatio: false,
+//         animation: {
+//             duration: 4500,
+//         }
+//     }
+// })
 
 let canvas_chart3 = new Chart(canvas3, {
     type: 'doughnut',

@@ -31,20 +31,24 @@
                 </div>
             </div>
         </section>
-        <!-- Second page activated on seach-->
-        <div id="page2-container"></div>
-        <section class="section">
-                <h1 class="page2-title">Sentoring Analyzer on: <br> {{text}}</h1>
+        <!-- Second page activated on search -->
 
-                <div class="testdiv"><canvas id="chart"></canvas></div>
-                <div class="container2">
-                    <canvas id="canvas2"></canvas>
+        <section class="section">
+            <div id="grid-container">
+                <div class="query_header">
+                    <h1 class="query_title">Sentoring Analyzer on: <br> {{text}}</h1>
                 </div>
-                <div class="container3"><canvas id="canvas3"></canvas></div>
-                <div class="buttons1">
-                    <button id="databtn">Check Data Points</button>
-                    <button id="btn2">Search Again</button>
+                <div class="query_buttons">
+                    <button id="btn2" class="button-design">Search Again</button>
+                    <button id="databtn" class="button-design">Check Data Points</button>
                 </div>
+                <div class="graph1">
+                    <canvas id="chart"></canvas>
+                </div>
+                <div class="graph2">
+                    <canvas id="canvas3"></canvas>
+                    <!-- <canvas id="canvas2"></canvas> -->
+                </div>            
             </div>
         </section>
     </div>

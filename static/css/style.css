@@ -14,6 +14,14 @@ body {
     transition: all 2.0s ease;
 }
 
+.bg-active {
+    background-color: white;
+}
+
+.bg-blue {
+    background-color: #00B2FF;
+}
+
 /* Main page */
 
 #main {
@@ -128,14 +136,56 @@ nav {
     transition: all 0.3s ease-in-out 0s;
 }
 
+@media screen and (max-width: 560px) {
+
+    nav {
+       left: 50%;
+       top:5%;
+       transform: translate(-50%, -5%);
+    }
+
+    .nav-bar li {
+        padding: 0px;
+        font-size:18px;
+    }
+
+    .searchBar .searchTerm {
+        /* No, this was not intentional. */
+        width: 420px; 
+        font-size: 14px;
+    }
+
+    #logo-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #title {
+        font-size: 48px;
+        font-style: normal;
+        font-weight: normal;
+        color: #FFFFFF;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        display: inline;
+        padding-left: 48px;
+        margin-right: 48px;
+    }
+
+    svg{
+        width: 96px;
+        height:auto;
+    }
+}
+
 /* About us */
 
-.title-about{
-    padding-bottom:40px;
+.title-about {
+    padding-bottom: 40px;
 }
 
 #about {
-    padding-bottom:20px;
+    padding-bottom: 20px;
     color: #FFFFFF;
     margin: auto;
     width: 50%;
@@ -143,57 +193,66 @@ nav {
     line-height: 24px;
 }
 
-#about h1{
-    font-size:48px;
-    line-height:48px;
+#about h1 {
+    font-size: 48px;
+    line-height: 48px;
 }
 
-@media screen and (max-width: 560px)
-{
+@media screen and (max-width: 560px) {
     #about {
-        width:80%;
-        padding-top:160px;
+        width: 80%;
+        padding-top: 160px;
     }
 
-    #about h1{
-        font-size:28px;
-        line-height:0px;
-    }
-    
-    nav {
-        top: 4%;
-        left: 4%;
-        transform: translate(-4%, -4%);
+    #about h1 {
+        font-size: 28px;
+        line-height: 0px;
     }
 }
 
 /* Second page (wherein the data lies) */
 
-#page2-container{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:space-around;
+#grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 4fr 0.5fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "query_header query_header"
+        "graph1 graph2"
+        "query_buttons query_buttons";
 }
 
-.page2-title{
-    text-align:center;
+.query_header{
+    grid-area: query_header;
+}
+
+.query_buttons {
+    grid-area: query_buttons;
+    margin: 0 auto;
+}
+
+.graph1{
+    grid-area: graph1;
+    height: 300px;
+    width: 500px;
+}
+
+.graph2{
+    grid-area:graph2;
+    height: 300px;
+    width: 500px;
+}
+
+.query_title {
+    text-align: center;
+    margin: auto;
     font-size: 36px;
-    font-weight: bold;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.bg-active{
-    background-color:white;
-}
 
-.bg-blue{
-    background-color:#00B2FF;
-}
+@media screen and (max-width: 560px) {
 
-@media screen and (max-width: 560pxx)
-{
-    
 }
 
 /* .testdiv {
