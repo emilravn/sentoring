@@ -11,6 +11,7 @@
 
 body {
     background-color: #00B2FF;
+    transition: all 1.0s ease;
 }
 
 /* Main page */
@@ -129,13 +130,8 @@ nav {
 
 /* About us */
 
-.grid {
-    display: grid;
-    place-items: center;
-}
-
 .title-about{
-    padding-bottom:20px;
+    padding-bottom:40px;
 }
 
 #about {
@@ -143,11 +139,60 @@ nav {
     color: #FFFFFF;
     margin: auto;
     width: 50%;
-    padding-top: 250px;
+    padding-top: 340px;
     line-height: 24px;
 }
 
-.testdiv {
+#about h1{
+    font-size:48px;
+    line-height:48px;
+}
+
+@media screen and (max-width: 560px)
+{
+    #about {
+        width:80%;
+        padding-top:160px;
+    }
+
+    #about h1{
+        font-size:28px;
+        line-height:0px;
+    }
+    
+    nav {
+        top: 4%;
+        left: 4%;
+        transform: translate(-4%, -4%);
+    }
+}
+
+/* Second page (wherein the data lies) */
+
+#page2-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-around;
+}
+
+.page2-title{
+    text-align:center;
+    font-size: 36px;
+    font-weight: bold;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.bg-active{
+    background-color:white;
+}
+
+@media screen and (max-width: 560pxx)
+{
+    
+}
+
+/* .testdiv {
     height: 300px;
     width: 600px;
     position: absolute;
@@ -180,4 +225,4 @@ nav {
     top: 20%;
     left: 10%;
     transform: translate(-10%, -20%);
-}
+} */

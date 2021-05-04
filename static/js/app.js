@@ -19,9 +19,11 @@ new fullpage('#fullpage', {
 fullpage_api.setScrollingSpeed(2000);
 fullpage_api.setAllowScrolling(false);
 
+
+
 //Queries 
-const btn2 = document.querySelector('#btn2');
 const btn = document.querySelector('#databtn');
+const btn2 = document.querySelector('#btn2');
 let canvas1 = document.getElementById('chart').getContext('2d');
 let canvas2 = document.getElementById('canvas2').getContext('2d');
 let canvas3 = document.getElementById('canvas3').getContext('2d');
@@ -90,7 +92,6 @@ function calcTopValues() {
         high_values.push(tweet_arr[i]);
         counts++;
     }
-
 }
 
 //Charts

@@ -21,22 +21,10 @@
         integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg=="
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
     <title>{% block title %}{% endblock %} - Sentoring</title>
 </head>
 
 <body>
-        <nav>
-            <ul class="nav-bar">
-                <li><a href="/"><svg class="logo-nav" width="48" height="48" viewBox="0 0 96 94" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M80 80V0L0 80H80Z" fill="black" fill-opacity="0.75" />
-                            <path d="M96 94V14L16 94H96Z" fill="#FFD028" fill-opacity="0.75" />
-                        </svg></a></li>
-                <li class="link"><a href="about">About</a></li>
-            </ul>
-        </nav>
     {% block content %}
     {% endblock %}
 </body>

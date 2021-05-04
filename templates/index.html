@@ -3,6 +3,11 @@
 
 <body>
     {% block content %}
+    <nav>
+        <ul class="nav-bar">
+            <li class="link"><a href="about">About</a></li>
+        </ul>
+    </nav>
     <!-- Fullpage ID is only touched by JS -->
     <div id="fullpage">
         <!-- Data field for JS -->
@@ -19,23 +24,27 @@
                     <h1 id="title">Sentoring</h1>
                 </div>
                 <div class="searchBar">
-                    <form class="search" action="#" method="post" autocomplete="off">
+                    <form id="searchJS" class="search" action="#" method="post" autocomplete="off">
                         <input placeholder="What do you want to know about?" class="searchTerm no-flickr" type="text"
                             name="nm" required>
                     </form>
                 </div>
             </div>
         </section>
-        <section class="section smooth-transition">
-            <h1>What people think about {{text}}</h1>
-            <div class="testdiv"><canvas id="chart"></canvas></div>
-            <div class="container2">
-                <canvas id="canvas2"></canvas>
-            </div>
-            <div class="container3"><canvas id="canvas3"></canvas></div>
-            <div class="buttons1">
-                <button id="databtn">Check Data Points</button>
-                <button id="btn2">Search Again</button>
+        <!-- Second page activated on seach-->
+        <div id="page2-container"></div>
+        <section class="section">
+                <h1 class="page2-title">Sentoring Analyzer on: <br> {{text}}</h1>
+
+                <div class="testdiv"><canvas id="chart"></canvas></div>
+                <div class="container2">
+                    <canvas id="canvas2"></canvas>
+                </div>
+                <div class="container3"><canvas id="canvas3"></canvas></div>
+                <div class="buttons1">
+                    <button id="databtn">Check Data Points</button>
+                    <button id="btn2">Search Again</button>
+                </div>
             </div>
         </section>
     </div>
@@ -46,6 +55,7 @@
         integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w=="
         crossorigin="anonymous"></script>
     <script src={{ url_for("static", filename="js/fullpage.min.js") }}></script>
-    <script src={{ url_for("static", filename="js/app2.js") }}></script>
+    <script src={{ url_for("static", filename="js/app.js") }}></script>
+    <script src={{ url_for("static", filename="js/animations.js") }}></script>
     {% endblock %}
 </body>
