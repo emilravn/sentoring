@@ -265,13 +265,13 @@ nav {
 }
 
 .query_title {
-    text-align: center;
-    margin: auto;
+    text-align:center;
     font-size: 36px;
+    font-weight:300;
 }
 
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1120px) {
     #grid-container {
         display: inline;
         height: 100vh;
@@ -291,39 +291,8 @@ nav {
         padding-top: 50px;
         text-align: center;
     }
+
+    .query_title{
+        font-size:24px;
+    }
 }
-
-/* .testdiv {
-    height: 300px;
-    width: 600px;
-    position: absolute;
-    top: 60%;
-    left: 4%;
-    transform: translate(-4%, -60%);
-}
-
-.container2 {
-    height: 300px;
-    width: 500px;
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -80%);
-}
-
-.container3 {
-
-    height: 400px;
-    width: 400px;
-    position: absolute;
-    top: 40%;
-    left: 90%;
-    transform: translate(-90%, -40%);
-}
-
-.buttons1 {
-    position: absolute;
-    top: 20%;
-    left: 10%;
-    transform: translate(-10%, -20%);
-} */

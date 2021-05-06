@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% block title %}Analyzer{% endblock %}
+{% block title %}Sentoring{% endblock %}
 
 <body>
     {% block content %}
@@ -36,15 +36,15 @@
         <section class="section">
             <div id="grid-container">
                 <div class="query_header">
-                    <h1 class="query_title">Sentoring Analyzer on: <br> {{text}}</h1>
+                    <h1 class="query_title">Results of Sentiment Analysis on {{text}}</h1>
                 </div>
                 
-                <div class="graph1">
-                    <canvas id="chart"></canvas>
-                </div>
                 <div class="graph2">
                     <canvas id="canvas3"></canvas>
                     <!-- <canvas id="canvas2"></canvas> -->
+                </div>
+                <div class="graph1">
+                    <canvas id="chart"></canvas>
                 </div>
                 <div class="query_buttons">
                     <button id="btn2" class="button-design">Search Again</button>
