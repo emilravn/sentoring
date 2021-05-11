@@ -165,3 +165,25 @@ let canvas_chart3 = new Chart(canvas3, {
         }
     }
 })
+
+
+const table = document.querySelector('#top_table');
+const table1 = document.querySelector('#low_table');
+
+for (let index = high_values.length - 1; index >= 0; index--) {
+
+    var row = table.insertRow(0);   
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = high_values[index][0];
+    cell2.innerHTML = high_values[index][2]; 
+}
+
+for (let index = low_values.length - 1; index >= 0; index--) {
+
+    var row = table1.insertRow(0);   
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = low_values[index][0];
+    cell2.innerHTML = low_values[index][2]; 
+}

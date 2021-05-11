@@ -212,25 +212,32 @@ nav {
 
 /* Second page (wherein the data lies) */
 
-#grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 4fr 0.5fr;
-    gap: 0px 0px;
-    grid-template-areas:
-        "query_header query_header"
-        "graph1 graph2"
-        "query_buttons query_buttons";
+#top {
+    position: absolute;
+    top: 15%;
+    left: 47%;
+    transform: translate(-47%, -15%);
+
+}
+
+#low {
+    position: absolute;
+    top: 15%;
+    left: 85%;
+    transform: translate(-85%, -15%);
+
 }
 
 .query_header {
-    grid-area: query_header;
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%, -7%);
+
 }
 
 .query_buttons {
-    grid-area: query_buttons;
-    margin: auto;
-  
+
 }
 
 .button-design{
@@ -250,49 +257,223 @@ nav {
     background-color:#00b3ff77
 }
 
+
+.top_comments {
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    transform: translate(-45%, -30%);
+    height: 300px;
+    width: 600px;
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+} 
+
+.low_comments {
+    position: absolute;
+    top: 30%;
+    left: 95%;
+    transform: translate(-95%, -30%);
+    height: 300px;
+    width: 600px;
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#top_table {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+#low_table {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+td {
+    border-bottom: 1px solid black;
+  }
+
+
 .graph1 {
-    grid-area: graph1;
-    margin: auto;
-    width: 560px;
-    height: auto;
+    position: absolute;
+    top: 90%;
+    left: 20%;
+    transform: translate(-20%, -90%);
+    height: 300px;
+    width: 1000px;
 }
 
 .graph2 {
-    grid-area: graph2;
-    margin: auto;
-    width: 560px;
-    height: auto;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    transform: translate(-10%, -30%);
+    height: 400px;
+    width: 400px;
 }
 
 .query_title {
-    text-align:center;
-    font-size: 36px;
-    font-weight:300;
+
+}
+
+.query_buttons {
+    position: absolute;
+    top: 80%;
+    left: 90%;
+    transform: translate(-90%, -80%);
+    width: 320px;
 }
 
 
 @media screen and (max-width: 1120px) {
-    #grid-container {
-        display: inline;
-        height: 100vh;
+    #top_table {
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        font-size: 12px;
+    }
+    
+    #low_table {
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        font-size: 12px;
+    }
+    
+    .top_comments {
+        overflow: auto;
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        transform: translate(-10%, -20%);
+        height: 180px;
+        width: 500px;
+        
+    
+    } 
+    
+    .low_comments {
+        overflow: auto;
+        position: absolute;
+        top: 20%;
+        left: 95%;
+        transform: translate(-95%, -20%);
+        height: 180px;
+        width: 500px;
+       
     }
 
+
     .graph1 {
-        width:220px;
-        padding-top: 50px;
+        position: absolute;
+        top: 60%;
+        left: 15%;
+        transform: translate(-15%, -60%);
+        height: 200px;
+        width: 400px;
     }
 
     .graph2 {
-        width:220;
-        padding-top: 50px;
+        position: absolute;
+        top: 60%;
+        left: 90%;
+        transform: translate(-90%, -60%);
+        height: 200px;
+        width: 400px;
+
     }
 
     .query_buttons {
-        padding-top: 50px;
-        text-align: center;
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -90%);
     }
 
     .query_title{
-        font-size:24px;
+
+    }
+}
+
+@media screen and (max-width: 560px) {
+    #top_table {
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+    }
+    
+    #low_table {
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .top_comments {
+        overflow: auto;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -20%);
+        height: 90px;
+        width: 300px;
+        font-size: 10px;
+        
+    
+    } 
+
+
+    
+    .low_comments {
+        overflow: auto;
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -35%);
+        height: 90px;
+        width: 300px;
+        font-size: 10px;
+       
+    }
+
+
+    .graph1 {
+        position: absolute;
+        top: 85%;
+        left: 50%;
+        transform: translate(-50%, -85%);
+        height: 180px;
+        width: 250px;
+    }
+
+    .graph2 {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -55%);
+        height: 180px;
+        width: 250px;
+
+    }
+
+    .query_buttons {
+        position: absolute;
+        top: 95%;
+        left: 50%;
+        transform: translate(-50%, -95%);
+    }
+
+    .query_title{
+        position: absolute;
+        top: 1%;
+        left: 50%;
+        transform: translate(-50%, -1%);
+        width: 300px;
+
+        font-size: 20px;
+
     }
 }
