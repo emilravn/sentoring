@@ -3,17 +3,22 @@
 
 <body>
     {% block content %}
-    <nav>
-        <ul class="nav-bar">
-            <li class="link"><a href="about">About</a></li>
-        </ul>
-    </nav>
+
     <!-- Fullpage ID is only touched by JS -->
     <div id="fullpage">
         <!-- Data field for JS -->
         <div id="data" data-geocode='{{ data_t|tojson }}'></div>
         <!-- Main section (first page) -->
         <section class="section">
+
+            <nav>
+                <ul class="nav-bar">
+                    <li class="link"><a href="about">About</a></li>
+                </ul>
+            </nav>
+
+
+
             <div id="main">
                 <div id="logo-title">
                     <svg class="logo" width="128" height="126" viewBox="0 0 96 94" fill="none"
@@ -35,36 +40,36 @@
 
         <section class="section">
 
-                <h3 id="top">most positive tweets</h3>
+                <h3 id="top">Most positive Tweets</h3>
+
                 <div class="top_comments">
                     <table id="top_table">
-
                     </table>
-
                 </div>
-                <h3 id="low">most negative tweets</h3>
+
+                <h3 id="low">Most negative Tweets</h3>
+
                 <div class="low_comments">
                     <table id="low_table">
-
                     </table>
-
                 </div>
             
                 <div class="query_header">
-                    <h1 class="query_title">Results of Sentiment Analysis on {{text}}</h1>
+                    <h1 class="query_title">Result of Sentiment Analysis on {{text}}</h1>
                 </div>
                 
                 <div class="graph2">
                     <canvas id="canvas3"></canvas>
                     <!-- <canvas id="canvas2"></canvas> -->
                 </div>
+
                 <div class="graph1">
                     <canvas id="chart"></canvas>
                 </div>
-                <div class="query_buttons">
+                
+
                     <button id="btn2" class="button-design">Search Again</button>
-                    <button id="databtn" class="button-design">Check Data Points</button>
-                </div>            
+          
             
         </section>
     </div>

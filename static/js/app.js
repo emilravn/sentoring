@@ -17,26 +17,29 @@ new fullpage('#fullpage', {
     }
 });
 
+//Fullpage settings 
 fullpage_api.setScrollingSpeed(2000);
 fullpage_api.setAllowScrolling(false);
 
 //Queries 
-const btn = document.querySelector('#databtn');
+//const btn = document.querySelector('#databtn');
 const btn2 = document.querySelector('#btn2');
+const table = document.querySelector('#top_table');
+const table1 = document.querySelector('#low_table');
 let canvas1 = document.getElementById('chart').getContext('2d');
-// let canvas2 = document.getElementById('canvas2').getContext('2d');
 let canvas3 = document.getElementById('canvas3').getContext('2d');
-var geocode = JSON.parse(document.getElementById("data").dataset.geocode);
+let geocode = JSON.parse(document.getElementById("data").dataset.geocode);
 
 //Collects analysis data passed to index from flask
 //var tweet_data = geocode.data_list; 
-var search_state = geocode.current_state;
-var tweets = geocode.tweet_data;
-var tweet_arr = Object.values(tweets);
+let search_state = geocode.current_state;
+let tweets = geocode.tweet_data;
+let tweet_arr = Object.values(tweets);
 let tweet_sentiment_values = [];
 let low_values = [];
 let high_values = [];
 
+//For loop that takes the sentiment value
 for (i = 0; i < tweet_arr.length; i++) {
     tweet_sentiment_values.push(tweet_arr[i][2]);
 }
@@ -50,7 +53,7 @@ if (search_state == 1) {
 
 //Eventhandlers for buttons
 btn2.onclick = () => goAgain();
-btn.onclick = () => alert(tweet_sentiment_values);
+//btn.onclick = () => alert(tweet_sentiment_values);
 
 //Functions  
 function goAgain() {
@@ -100,7 +103,7 @@ let canvas_chart1 = new Chart(canvas1, {
     data: {
         labels: tweet_sentiment_values.map(String),
         datasets: [{
-            //label: 'Numbers',
+            //label: 'Excerpt of tweet values',
             data: tweet_sentiment_values,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.6)',
@@ -115,33 +118,18 @@ let canvas_chart1 = new Chart(canvas1, {
         maintainAspectRatio: false,
         animation: {
             duration: 4500,
+        },
+        plugins: {
+            title: {
+                display: true, 
+                text: 'Excerpt of tweet values' 
+            }, 
+            legend: {
+                display: false
+            } 
         }
     }
 })
-
-// let canvas_chart2 = new Chart(canvas2, {
-//     type: 'radar',
-//     data: {
-//         labels: ['one', 'two', 'three', 'four'],
-//         datasets: [{
-//             label: 'Numbers',
-//             data: [1, 2, 3, 4],
-//             backgroundColor: [
-//                 'rgba(255, 99, 132, 0.6)',
-//                 'rgba(54, 162, 235, 0.6)',
-//                 'rgba(255, 206, 86, 0.6)',
-//                 'rgba(75, 192, 192, 0.6)'
-//             ]
-//         }]
-//     },
-//     options: {
-//         responsive: true,
-//         maintainAspectRatio: false,
-//         animation: {
-//             duration: 4500,
-//         }
-//     }
-// })
 
 let canvas_chart3 = new Chart(canvas3, {
     type: 'doughnut',
@@ -167,23 +155,23 @@ let canvas_chart3 = new Chart(canvas3, {
 })
 
 
-const table = document.querySelector('#top_table');
-const table1 = document.querySelector('#low_table');
 
+//For loop that calculates top positive comments
 for (let index = high_values.length - 1; index >= 0; index--) {
 
-    var row = table.insertRow(0);   
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
+    let row = table.insertRow(0);   
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
     cell1.innerHTML = high_values[index][0];
     cell2.innerHTML = high_values[index][2]; 
 }
 
+//For loop that calculates top negative comments
 for (let index = low_values.length - 1; index >= 0; index--) {
 
-    var row = table1.insertRow(0);   
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
+    let row = table1.insertRow(0);   
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
     cell1.innerHTML = low_values[index][0];
     cell2.innerHTML = low_values[index][2]; 
 }
