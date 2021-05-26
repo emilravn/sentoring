@@ -32,7 +32,7 @@ class APIHandler:
             q=search_words + " -filter:retweets",
             lang="en",
             since=week.date(),
-        ).items(15)
+        ).items(250)
         users_locs = [
             [tweet.text, tweet.user.screen_name, tweet.user.location, tweet.created_at]
             for tweet in tweets
