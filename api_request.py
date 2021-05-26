@@ -4,7 +4,6 @@ import json
 from datetime import datetime, timedelta
 import re
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-from matplotlib import pyplot as plt
 
 
 class APIHandler:
