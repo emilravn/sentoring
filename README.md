@@ -1,13 +1,16 @@
 # Sentoring
+Sentoring is a sentiment analysis tool for conducting analysis on tweets made by users on Twitter. The tool retrieves a large sets of comments based on keywords given by the user. The retrieved data is then fed into a sentimental model for analysis, determining positive, negative, and neutral sentiment from these tweets. It will then present the analysis as graphical representations in the form of charts, tables and diagrams, giving the user an overview of the sentiment about the keyword(s) they searched for.
 
-Sentoring is a tool that will retrieve and analyze statements said by individuals on Twitter.
+# Running the application
+- Verify that you have the latest version of Python (Python 3.9.5)
+- Clone the repository to your device and CD into the root folder.
+- Create a new virtual environment for this project. On Linux, this is by running `python3 -m venv .env`.
+- Activate the environment. On Linux, this is done by running `source .env/bin/activate/` in the same folder you created the environment.
+- Rebuild the required packages into the environment as listed in the `requirements.txt` file by running `pip install -r requirements.txt`.
+- To start the application, run `python app.py` in the root folder.
+- Navigate to the IP address depicted by your terminal. Usually at http://127.0.0.1:PORT
 
-## How do I setup?
-
-The easiest way is to setup your own virtual environment and rebuilding from the `requirements.txt` file. These setup instructions are for Linux.
-
-1. Make sure you have Python3 installed.
-2. Clone the repository and CD into it.
-3. Create a new virtual environent, ie. `python3 -m venv .env`
-4. Activate that new virtual environment, ie. `source .env/bin/activate/`
-5. Rebuild packages as listed in `requirements.txt` by doing `pip3 install -r requirements.txt`
+## External libraries used
+- Flask: https://github.com/pallets/flask
+- Tweepy:https://github.com/tweepy/tweepy
+- vaderSentiment: https://github.com/cjhutto/vaderSentiment
